@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import { list } from 'postcss';
 import './style.scss';
 
 // Array of todo-list tasks

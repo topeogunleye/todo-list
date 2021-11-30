@@ -35,7 +35,7 @@ body {
 .todo-list {
   max-width: 480px;
   margin: auto;
-  box-shadow: 0px 2px 8px rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
   background-color: #fff;
 }
 
@@ -75,6 +75,8 @@ body {
 
     .todo-icon {
       margin-left: auto;
+      width: 20px;
+      height: 20px;
     }
   }
 }
@@ -91,13 +93,9 @@ body {
   cursor: pointer;
 }
 
-.todo-icon {
-  width: 20px;
-  height: 20px;
-}
-
 .delete-tasks {
   background-color: #f6f6f6;
+
   .delete-all {
     appearance: none;
     outline: none;
@@ -108,5 +106,4 @@ body {
     cursor: pointer;
     width: 100%;
   }
- 
 }
