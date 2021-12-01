@@ -39,7 +39,19 @@ git clone https://github.com/topeogunleye/todo-list.git
 
 - Once the files are on your machine, open the _todo-list_ folder in [Visual Studio Code](https://code.visualstudio.com/).
 
-- With the files open in Visual Studio Code, press the **Go Live** button at the bottom of the window to launch the files with [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
+In the project directory, you can run:
+
+### `npm start`
+
+To Run the app in the development mode.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `npm build`
+
+To create a production build
 
 ### Install
 
@@ -47,7 +59,7 @@ The following tools help make easier to work with sample code.
 
 - [git](https://git-scm.com/downloads): A tool for managing source code
 - [Visual Studio Code](https://code.visualstudio.com/): A source code editor
-- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): A simple web server utility for Visual Studio Code
+- [NVM](https://github.com/nvm-sh/nvm)
 
 ## Authors
 
