@@ -13,7 +13,5 @@ export class statusUpdates {
     } else {
       task.completed = false;
     }
-
-    console.log(task, status)
   }
 }

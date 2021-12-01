@@ -8,7 +8,6 @@ class Store {
     let tasks;
     if (localStorage.getItem('tasks') === null) {
       tasks = [...TASKS]; // copy the array
-      console.log(tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks));
     } else {
       tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -35,7 +34,6 @@ class Store {
     }
 
     localStorage.setItem('tasks', JSON.stringify(TASKS));
-    console.log(TASKS);
   }
 
   static removeTask(task) {
@@ -49,7 +47,6 @@ class Store {
 class UI {
   static displayTasks() {
     const tasks = Store.getTasks();
-    console.log(TASKS);
 
     tasks.forEach((task) => UI.addTaskToList(task));
   }
@@ -62,14 +59,11 @@ class UI {
     // Add classname to the list item
     listItem.classList.add('task');
 
-    // Add id to the list item
-    listItem.id = `task-${task.index}`;
-
     // Add HTML to the list item
     listItem.innerHTML = `
    <input 
      type="checkbox"
-     id="task-${task.index}"
+      id="task-${task.index}"
    />
    <label for="task-${task.index}">
      <span class="custom-checkbox"></span>
@@ -84,6 +78,18 @@ class UI {
     todoList.appendChild(listItem);
   }
 
+  // keep completed tasks checked on page reload
+  static checkCompletedTasks() {
+    const tasks = Store.getTasks();
+    tasks.forEach((task) => {
+      if (task.completed === true) {
+        document.getElementById(`task-${task.index}`).checked = true;
+      }
+    });
+  }
+
+
+
   static deleteTask(task) {
     const taskList = document.querySelector('.tasks');
     const taskItem = document.getElementById(`task-${task.index}`);
@@ -93,7 +99,10 @@ class UI {
 
 document.addEventListener('DOMContentLoaded', UI.displayTasks);
 
+document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
+
 // event listener for checkbox change
 document.querySelector('.tasks').addEventListener('change', (e) => {
+  console.log(e.target)
   Store.changeTaskStatus(e);
 });
