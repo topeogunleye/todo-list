@@ -1,0 +1,109 @@
+:root {
+  --clr-primary: #f6f6f6;
+  --clr-dark: #545862;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* reset */
+body,
+p,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* fonts */
+body {
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #f1f2f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.todo-list {
+  max-width: 480px;
+  margin: auto;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  background-color: #fff;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.tasks-form {
+  display: flex;
+  justify-content: space-between;
+
+  input[type='text'] {
+    width: 100%;
+    padding: 0 40px 0 1rem;
+    line-height: 50px;
+    height: 50px;
+    border: none;
+    font-style: italic;
+  }
+}
+
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  margin-top: 20px;
+  background-color: #fff;
+
+  .task {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e6e6e6;
+
+    .todo-icon {
+      margin-left: auto;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.icon-return {
+  background-image: url('https://web.archive.org/web/20180728085226im_/http://www.getminimalist.com/assets/enter-b06ec7fb441bc0e40d61ba975a0291ad.png');
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.delete-tasks {
+  background-color: #f6f6f6;
+
+  .delete-all {
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 1rem 0;
+    display: block;
+    opacity: 0.5;
+    cursor: pointer;
+    width: 100%;
+  }
+}
