@@ -32,6 +32,7 @@ class Store {
     } else {
       statusUpdates.updateStatus(task, 'uncompleted');
     }
+    
 
     localStorage.setItem('tasks', JSON.stringify(TASKS));
   }
@@ -88,7 +89,12 @@ class UI {
     });
   }
 
-
+  static renderTaskCount() {
+    const tasks = Store.getTasks();
+    const uncompletedTasks = tasks.filter((task) => task.completed === false);
+    const taskCount = document.querySelector('.task-count');
+    taskCount.textContent = `${uncompletedTasks.length}`;
+  }
 
   static deleteTask(task) {
     const taskList = document.querySelector('.tasks');
@@ -103,6 +109,6 @@ document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
 
 // event listener for checkbox change
 document.querySelector('.tasks').addEventListener('change', (e) => {
-  console.log(e.target)
   Store.changeTaskStatus(e);
+  UI.renderTaskCount()
 });
