@@ -45,7 +45,53 @@ class Store {
   }
 }
 
+// UI Class: Handle UI Class
+class UI {
+  static displayTasks() {
+    const tasks = Store.getTasks();
+    console.log(TASKS);
 
+    tasks.forEach((task) => UI.addTaskToList(task));
+  }
+
+  static addTaskToList(task) {
+    const todoList = document.querySelector('.tasks');
+
+    // Create a new list item
+    const listItem = document.createElement('div');
+    // Add classname to the list item
+    listItem.classList.add('task');
+
+    // Add id to the list item
+    listItem.id = `task-${task.index}`;
+
+    // Add HTML to the list item
+    listItem.innerHTML = `
+   <input 
+     type="checkbox"
+     id="task-${task.index}"
+   />
+   <label for="task-${task.index}">
+     <span class="custom-checkbox"></span>
+     ${task.description}
+   </label>
+   <svg xmlns="http://www.w3.org/2000/svg" class="todo-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+   </svg>
+   `;
+
+    // Add the list item to the todo-list
+    todoList.appendChild(listItem);
+  }
+
+  static deleteTask(task) {
+    const taskList = document.querySelector('.tasks');
+    const taskItem = document.getElementById(`task-${task.index}`);
+    taskList.removeChild(taskItem);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', UI.displayTasks);
 
 // event listener for checkbox change
 document.querySelector('.tasks').addEventListener('change', (e) => {
