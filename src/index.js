@@ -105,6 +105,8 @@ class UI {
 
 document.addEventListener('DOMContentLoaded', UI.displayTasks);
 
+document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
+
 document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
 
 // event listener for checkbox change
