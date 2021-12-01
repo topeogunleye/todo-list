@@ -37,21 +37,31 @@ If you installed git you can clone the code to your machine, or download a ZIP o
 git clone https://github.com/topeogunleye/todo-list.git
 ```
 
-- Once the files are on your machine, open the _todo-list_ folder in [Visual Studio Code](https://code.visualstudio.com/).
+- Once the files are on your machine, open the _todo-list_ folder in [Visual Studio Code](https://code.visualstudio.com/), and follow the steps in Installation & Set Up
 
-In the project directory, you can run:
+## 🛠 Installation & Set Up
 
-### `npm start`
+1. Install Node Modules
 
-To Run the app in the development mode.
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+   ```sh
+   npm install
+   ```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Start the development server
 
-### `npm build`
+   ```sh
+   npm start
+   ```
 
-To create a production build
+3. Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+
+## 🚀 Building and Running for Production
+
+1. Generate a full static production build
+
+   ```sh
+   npm run build
+   ```
 
 ### Install
 
