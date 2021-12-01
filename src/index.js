@@ -1,6 +1,7 @@
+/* eslint-disable max-classes-per-file */
 import './style.scss';
-import { TASKS } from './tasks';
-import { statusUpdates } from './statusUpdates';
+import TASKS from './tasks.js';
+import statusUpdates from './statusUpdates.js';
 
 // Store Class: Handles localStorage
 class Store {
@@ -25,20 +26,19 @@ class Store {
     const TASKS = Store.getTasks();
 
     const task = TASKS.find(
-      (t) => t.index === parseInt(e.target.id.split('-')[1])
+      (t) => t.index === parseInt(e.target.id.split('-')[1], 10),
     );
     if (e.target.checked) {
       statusUpdates.updateStatus(task, 'completed');
     } else {
       statusUpdates.updateStatus(task, 'uncompleted');
     }
-    
 
     localStorage.setItem('tasks', JSON.stringify(TASKS));
   }
 
   static removeTask(task) {
-    const tasks = Store.getTasks();
+    let tasks = Store.getTasks();
     tasks = tasks.filter((t) => t.id !== task.id);
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
@@ -112,5 +112,5 @@ document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
 // event listener for checkbox change
 document.querySelector('.tasks').addEventListener('change', (e) => {
   Store.changeTaskStatus(e);
-  UI.renderTaskCount()
+  UI.renderTaskCount();
 });

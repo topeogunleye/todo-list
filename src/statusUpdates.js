@@ -1,4 +1,4 @@
-export class statusUpdates {
+class statusUpdates {
   static updateStatus(task, status) {
     if (status === 'completed') {
       task.completed = true;
@@ -7,3 +7,5 @@ export class statusUpdates {
     }
   }
 }
+
+export default statusUpdates;

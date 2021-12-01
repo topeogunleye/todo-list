@@ -1,4 +1,4 @@
-export const TASKS = [
+const TASKS = [
   {
     description: 'Task 1',
     completed: false,
@@ -25,3 +25,5 @@ export const TASKS = [
     index: 5,
   },
 ];
+
+export default TASKS;
