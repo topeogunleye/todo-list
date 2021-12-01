@@ -107,3 +107,13 @@ body {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .todo-list {
+    width: 100%;
+  }
+
+  .tasks {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
