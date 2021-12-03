@@ -30,7 +30,7 @@ document.querySelector('.tasks-form').addEventListener('submit', (e) => {
     };
 
     Store.addTask(task);
-    Store.updateTasksIndex()
+    Store.updateTasksIndex();
 
     UI.addTaskToList(task);
     UI.renderTaskCount();
@@ -43,15 +43,14 @@ document.querySelector('.tasks').addEventListener('click', (e) => {
   if (e.target.classList.contains('delete-task')) {
     UI.deleteTask(e.target);
     Store.removeTask(e.target.previousElementSibling.textContent);
-    Store.updateTasksIndex()
+    Store.updateTasksIndex();
     UI.renderTaskCount();
-    console.log(e.target.previousElementSibling.textContent);
   }
 });
 
 // Event: Clear all completed
 document.querySelector('.clear-completed').addEventListener('click', () => {
   Store.clearCompletedTasks();
-  UI.displayUncompletedTasks()
+  UI.displayUncompletedTasks();
   UI.renderTaskCount();
 });

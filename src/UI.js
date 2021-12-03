@@ -87,15 +87,6 @@ export default class UI {
     }
   }
 
-  // update task.index after deleting a task
-  static updateTaskIndexes() {
-    const tasks = Store.getTasks();
-    tasks.forEach((task, index) => {  
-      task.index = index; 
-    });
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-
   // clear all completed tasks from UI
   static clearCompletedTasks() {
     const tasks = Store.getTasks();
