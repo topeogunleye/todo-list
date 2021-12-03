@@ -1,116 +1,57 @@
 /* eslint-disable max-classes-per-file */
 import './style.scss';
-import TASKS from './tasks.js';
-import statusUpdates from './statusUpdates.js';
-
-// Store Class: Handles localStorage
-class Store {
-  static getTasks() {
-    let tasks;
-    if (localStorage.getItem('tasks') === null) {
-      tasks = [...TASKS]; // copy the array
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    } else {
-      tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
-    return tasks;
-  }
-
-  static addTask(task) {
-    const tasks = Store.getTasks();
-    tasks.push(task);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-
-  static changeTaskStatus(e) {
-    const TASKS = Store.getTasks();
-
-    const task = TASKS.find(
-      (t) => t.index === parseInt(e.target.id.split('-')[1], 10),
-    );
-    if (e.target.checked) {
-      statusUpdates.updateStatus(task, 'completed');
-    } else {
-      statusUpdates.updateStatus(task, 'uncompleted');
-    }
-
-    localStorage.setItem('tasks', JSON.stringify(TASKS));
-  }
-
-  static removeTask(task) {
-    let tasks = Store.getTasks();
-    tasks = tasks.filter((t) => t.id !== task.id);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-}
-
-// UI Class: Handle UI Class
-class UI {
-  static displayTasks() {
-    const tasks = Store.getTasks();
-
-    tasks.forEach((task) => UI.addTaskToList(task));
-  }
-
-  static addTaskToList(task) {
-    const todoList = document.querySelector('.tasks');
-
-    // Create a new list item
-    const listItem = document.createElement('div');
-    // Add classname to the list item
-    listItem.classList.add('task');
-
-    // Add HTML to the list item
-    listItem.innerHTML = `
-   <input 
-     type="checkbox"
-      id="task-${task.index}"
-   />
-   <label for="task-${task.index}">
-     <span class="custom-checkbox"></span>
-     ${task.description}
-   </label>
-   <svg xmlns="http://www.w3.org/2000/svg" class="todo-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-   </svg>
-   `;
-
-    // Add the list item to the todo-list
-    todoList.appendChild(listItem);
-  }
-
-  // keep completed tasks checked on page reload
-  static checkCompletedTasks() {
-    const tasks = Store.getTasks();
-    tasks.forEach((task) => {
-      if (task.completed === true) {
-        document.getElementById(`task-${task.index}`).checked = true;
-      }
-    });
-  }
-
-  static renderTaskCount() {
-    const tasks = Store.getTasks();
-    const uncompletedTasks = tasks.filter((task) => task.completed === false);
-    const taskCount = document.querySelector('.task-count');
-    taskCount.textContent = `${uncompletedTasks.length}`;
-  }
-
-  static deleteTask(task) {
-    const taskList = document.querySelector('.tasks');
-    const taskItem = document.getElementById(`task-${task.index}`);
-    taskList.removeChild(taskItem);
-  }
-}
+import Store from './Store.js';
+import UI from './UI.js';
 
 document.addEventListener('DOMContentLoaded', UI.displayTasks);
 
-document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
-
 document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
+
+document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
 
 // event listener for checkbox change
 document.querySelector('.tasks').addEventListener('change', (e) => {
   Store.changeTaskStatus(e);
+  UI.renderTaskCount();
+});
+
+// Event: Add a task
+document.querySelector('.tasks-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const taskDescription = document.querySelector('#task-description').value;
+
+  if (taskDescription === '') {
+    alert('Please add a task');
+  } else {
+    const task = {
+      description: taskDescription,
+      completed: false,
+      index: Store.getTasks().length + 1,
+    };
+
+    Store.addTask(task);
+    Store.updateTasksIndex()
+
+    UI.addTaskToList(task);
+    UI.renderTaskCount();
+    document.querySelector('#task-description').value = '';
+  }
+});
+
+// Event: Remove a task
+document.querySelector('.tasks').addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete-task')) {
+    UI.deleteTask(e.target);
+    Store.removeTask(e.target.previousElementSibling.textContent);
+    Store.updateTasksIndex()
+    UI.renderTaskCount();
+    console.log(e.target.previousElementSibling.textContent);
+  }
+});
+
+// Event: Clear all completed
+document.querySelector('.clear-completed').addEventListener('click', () => {
+  Store.clearCompletedTasks();
+  UI.displayUncompletedTasks()
   UI.renderTaskCount();
 });
