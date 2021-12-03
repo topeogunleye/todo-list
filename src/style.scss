@@ -61,6 +61,25 @@ body {
   }
 }
 
+.delete-tasks {
+  background-color: #f6f6f6;
+
+  .clear-completed {
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 1rem 0;
+    display: block;
+    opacity: 0.5;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .d-none {
+    display: none;
+  }
+}
+
 .tasks {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
@@ -70,13 +89,40 @@ body {
   .task {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 0 20px;
     border: 1px solid #e6e6e6;
+
+    &.editing {
+      background-color: #fffeca;
+    }
+
+    input[type='text'] {
+      width: 90%;
+      margin: 0 5px;
+      border: none;
+      background: transparent;
+      padding: 15px;
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .view {
+      .edit {
+        // display: none;
+      }
+    }
 
     .todo-icon {
       margin-left: auto;
       width: 20px;
       height: 20px;
+      cursor: pointer;
     }
   }
 }
@@ -91,21 +137,6 @@ body {
   width: 40px;
   height: 50px;
   cursor: pointer;
-}
-
-.delete-tasks {
-  background-color: #f6f6f6;
-
-  .delete-all {
-    appearance: none;
-    outline: none;
-    border: none;
-    padding: 1rem 0;
-    display: block;
-    opacity: 0.5;
-    cursor: pointer;
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 480px) {
