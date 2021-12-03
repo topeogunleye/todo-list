@@ -51,6 +51,7 @@ document.querySelector('.tasks').addEventListener('click', (e) => {
 // Event: Clear all completed
 document.querySelector('.clear-completed').addEventListener('click', () => {
   Store.clearCompletedTasks();
+  Store.updateTasksIndex();
   UI.displayUncompletedTasks();
   UI.renderTaskCount();
 });
