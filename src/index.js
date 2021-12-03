@@ -44,6 +44,7 @@ document.querySelector('.tasks').addEventListener('click', (e) => {
     UI.deleteTask(e.target);
     Store.removeTask(e.target.previousElementSibling.textContent);
     Store.updateTasksIndex();
+    UI.displayTasks();
     UI.renderTaskCount();
   }
 });
@@ -52,6 +53,6 @@ document.querySelector('.tasks').addEventListener('click', (e) => {
 document.querySelector('.clear-completed').addEventListener('click', () => {
   Store.clearCompletedTasks();
   Store.updateTasksIndex();
-  UI.displayUncompletedTasks();
+  UI.displayTasks();
   UI.renderTaskCount();
 });

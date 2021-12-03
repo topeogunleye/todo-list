@@ -5,6 +5,9 @@ export default class UI {
   static displayTasks() {
     const tasks = Store.getTasks();
 
+    const list = document.querySelector('.tasks');
+    list.innerHTML = '';
+
     tasks.forEach((task) => {
       UI.addTaskToList(task);
     });
@@ -94,18 +97,6 @@ export default class UI {
       if (task.completed === true) {
         document.getElementById(`task-${task.index}`).parentElement.remove();
       }
-    });
-  }
-
-  // display only uncompleted tasks
-  static displayUncompletedTasks() {
-    const tasks = Store.getTasks();
-
-    const list = document.querySelector('.tasks');
-    list.innerHTML = '';
-
-    tasks.forEach((task) => {
-      UI.addTaskToList(task);
     });
   }
 }
