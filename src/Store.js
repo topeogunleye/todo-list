@@ -52,4 +52,9 @@ export default class Store {
     tasks = tasks.filter((task) => task.completed !== true);
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
+
+  static getCompletedTasks() {
+    const tasks = Store.getTasks();
+    return tasks.filter((task) => task.completed === true);
+  }
 }
