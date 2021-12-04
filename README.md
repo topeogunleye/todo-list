@@ -20,7 +20,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://todo-list-microverse.netlify.app/)
+[Live Demo Link](https://topeogunleye.github.io/todo-list/)
 
 ## Getting Started
 To get a local copy up and running, follow the steps in Setup below.
