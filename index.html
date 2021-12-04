@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <title>Todo List</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <div class="todo-list">
+      <div class="todo-header">
+        <h2>Today's Todo</h2>
+
+        <div class="refresh">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="todo-icon"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span class="task-count show">5</span>
+        </div>
+      </div>
+
+      <div class="todo-body">
+        <div class="new-task-creator">
+          <form action="#" class="tasks-form">
+            <input
+              id="task-description"
+              type="text"
+              class="new task"
+              placeholder="Add to your list"
+            />
+            <input
+              id="submit-new-item"
+              type="submit"
+              tabindex="-1"
+              value=""
+              title="click this or press enter to submit"
+              class="icon-return"
+            />
+          </form>
+        </div>
+
+        <div class="tasks"></div>
+
+        <div class="delete-tasks">
+          <button class="btn clear-completed" type="reset">
+            Clear all completed
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
