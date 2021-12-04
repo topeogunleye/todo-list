@@ -21,7 +21,7 @@ document.querySelector('.tasks-form').addEventListener('submit', (e) => {
   const taskDescription = document.querySelector('#task-description').value;
 
   if (taskDescription === '') {
-    alert('Please add a task');
+    UI.showAlert('Please add a task', 'danger');
   } else {
     const task = {
       description: taskDescription,
@@ -33,6 +33,7 @@ document.querySelector('.tasks-form').addEventListener('submit', (e) => {
     Store.updateTasksIndex();
 
     UI.addTaskToList(task);
+    UI.showAlert('Task added', 'success');
     UI.renderTaskCount();
     document.querySelector('#task-description').value = '';
   }
@@ -45,12 +46,19 @@ document.querySelector('.tasks').addEventListener('click', (e) => {
     Store.removeTask(e.target.previousElementSibling.textContent);
     Store.updateTasksIndex();
     UI.displayTasks();
+    UI.showAlert('Task removed', 'success');
     UI.renderTaskCount();
   }
 });
 
 // Event: Clear all completed
 document.querySelector('.clear-completed').addEventListener('click', () => {
+  // if no tasks are completed, show alert
+  if (Store.getCompletedTasks().length === 0) {
+    UI.showAlert('No completed tasks', 'info');
+  } else {
+    UI.showAlert('Completed tasks cleared', 'success');
+  }
   Store.clearCompletedTasks();
   Store.updateTasksIndex();
   UI.displayTasks();

@@ -47,6 +47,30 @@ body {
   padding: 0 20px;
 }
 
+.danger {
+  color: #fff;
+  background-color: #d9534f;
+  display: grid;
+  place-items: center;
+  padding: 10px 20px;
+}
+
+.success {
+  color: #fff;
+  background-color: #5cb85c;
+  display: grid;
+  place-items: center;
+  padding: 10px 20px;
+}
+
+.info {
+  color: #fff;
+  background-color: #5bc0de;
+  display: grid;
+  place-items: center;
+  padding: 10px 20px;
+}
+
 .tasks-form {
   display: flex;
   justify-content: space-between;
