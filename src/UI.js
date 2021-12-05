@@ -98,6 +98,10 @@ export default class UI {
     taskCount.textContent = `${uncompletedTasks.length}`;
   }
 
+  /**
+   * @function deleteTask - delete task from the UI
+   * @param {Event Object} e - event target
+   */
   static deleteTask(el) {
     if (el.classList.contains('delete-task')) {
       el.parentElement.remove();
