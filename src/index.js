@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
 
 // event listener for checkbox change
 document.querySelector('.tasks').addEventListener('change', (e) => {
-  Store.changeTaskStatus(e);
+  Store.changeTaskStatus(e.target);
   UI.renderTaskCount();
 });
 
