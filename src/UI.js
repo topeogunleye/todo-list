@@ -72,6 +72,9 @@ export default class UI {
     UI.renderTaskCount();
   }
 
+  /**
+   * @function checkCompletedTask - if task is completed, keep it checked
+   */
   // keep completed tasks checked on page reload
   static checkCompletedTasks() {
     // Get tasks from localStorage
