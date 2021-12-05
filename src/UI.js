@@ -132,6 +132,9 @@ export default class UI {
     }, 3000);
   }
 
+  /**
+   * @function clearCompletedTasks - remove completed tasks from the UI
+   */
   // clear all completed tasks from UI
   static clearCompletedTasks() {
     const tasks = Store.getTasks();
