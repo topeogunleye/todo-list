@@ -108,6 +108,11 @@ export default class UI {
     }
   }
 
+  /**
+   * @function showAlert - display alert message
+   * @param {string} message - message to display
+   * @param {string} className - classname to add to the alert
+   */
   static showAlert(message, className) {
     // Create div
     const div = document.createElement('div');
