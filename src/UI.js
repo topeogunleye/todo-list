@@ -18,7 +18,7 @@ export default class UI {
 
   /**
    * @function addTaskToList - add task to the UI
-   * @param {object} task - task object with keys: {description, completed, and index} 
+   * @param {object} task - task object with keys: {description, completed, and index}
    */
   static addTaskToList(task) {
     const todoList = document.querySelector('.tasks');
@@ -47,8 +47,9 @@ export default class UI {
       const tasks = Store.getTasks();
       // find the task in the array
       const task = tasks.find(
-        (t) => t.index
-          === parseInt(e.target.previousElementSibling.id.split('-')[1], 10),
+        (t) =>
+          t.index ===
+          parseInt(e.target.previousElementSibling.id.split('-')[1], 10)
       );
       // update the task description
       task.description = e.target.value;
@@ -87,6 +88,9 @@ export default class UI {
     });
   }
 
+  /**
+   * @function renderTaskCount - display number of tasks left
+   */
   static renderTaskCount() {
     const tasks = Store.getTasks();
     const uncompletedTasks = tasks.filter((task) => task.completed === false);
