@@ -47,9 +47,8 @@ export default class UI {
       const tasks = Store.getTasks();
       // find the task in the array
       const task = tasks.find(
-        (t) =>
-          t.index ===
-          parseInt(e.target.previousElementSibling.id.split('-')[1], 10)
+        (t) => t.index
+          === parseInt(e.target.previousElementSibling.id.split('-')[1], 10),
       );
       // update the task description
       task.description = e.target.value;

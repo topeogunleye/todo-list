@@ -13,7 +13,7 @@ export default class Store {
 
   /**
    * @function addTask - instance method that adds new task to local storage
-   * @param {Object} task - a task object with keys: {description, completed, and index} 
+   * @param {Object} task - a task object with keys: {description, completed, and index}
    */
   static addTask(task) {
     const tasks = Store.getTasks();
@@ -29,7 +29,7 @@ export default class Store {
     const TASKS = Store.getTasks();
 
     const task = TASKS.find(
-      (t) => t.index === parseInt(el.id.split('-')[1], 10)
+      (t) => t.index === parseInt(el.id.split('-')[1], 10),
     );
     if (el.checked) {
       statusUpdates.updateStatus(task, 'completed');
