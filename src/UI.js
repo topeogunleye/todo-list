@@ -2,6 +2,9 @@ import Store from './Store.js';
 
 // UI Class: Handle UI Class
 export default class UI {
+  /**
+   * @function displayTasks - display tasks on the UI
+   */
   static displayTasks() {
     const tasks = Store.getTasks();
 
@@ -13,6 +16,10 @@ export default class UI {
     });
   }
 
+  /**
+   * @function addTaskToList - add task to the UI
+   * @param {Object} task - task object with keys: {description, completed, and index}
+   */
   static addTaskToList(task) {
     const todoList = document.querySelector('.tasks');
 
@@ -65,6 +72,9 @@ export default class UI {
     UI.renderTaskCount();
   }
 
+  /**
+   * @function checkCompletedTask - if task is completed, keep it checked
+   */
   // keep completed tasks checked on page reload
   static checkCompletedTasks() {
     // Get tasks from localStorage
@@ -77,6 +87,9 @@ export default class UI {
     });
   }
 
+  /**
+   * @function renderTaskCount - display number of tasks left
+   */
   static renderTaskCount() {
     const tasks = Store.getTasks();
     const uncompletedTasks = tasks.filter((task) => task.completed === false);
@@ -84,12 +97,21 @@ export default class UI {
     taskCount.textContent = `${uncompletedTasks.length}`;
   }
 
+  /**
+   * @function deleteTask - delete task from the UI
+   * @param {Event Object} e - event target
+   */
   static deleteTask(el) {
     if (el.classList.contains('delete-task')) {
       el.parentElement.remove();
     }
   }
 
+  /**
+   * @function showAlert - display alert message
+   * @param {string} message - message to display
+   * @param {string} className - classname to add to the alert
+   */
   static showAlert(message, className) {
     // Create div
     const div = document.createElement('div');
@@ -109,6 +131,9 @@ export default class UI {
     }, 3000);
   }
 
+  /**
+   * @function clearCompletedTasks - remove completed tasks from the UI
+   */
   // clear all completed tasks from UI
   static clearCompletedTasks() {
     const tasks = Store.getTasks();
