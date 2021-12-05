@@ -12,7 +12,8 @@ export default class Store {
   }
 
   /**
-   * @function addTask - instance method that add new task to local storage
+   * @function addTask - instance method that adds new task to local storage
+   * @param {Object} task - a task object with keys: {description, completed, and index} 
    */
   static addTask(task) {
     const tasks = Store.getTasks();
@@ -20,7 +21,11 @@ export default class Store {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
-
+  /**
+   * @function changeTaskStatus - instance method that changes the 
+   * completed property value to either true or false
+   * @param {Event Object} el - The event target
+   */
   static changeTaskStatus(el) {
     const TASKS = Store.getTasks();
 
@@ -38,7 +43,7 @@ export default class Store {
 
   /**
    * @function removeTask - The remove function to remove a task from local storage
-   * @param {*} id - The id of the item
+   * @param {string} id - The event target previous element sibling text content
    */
   static removeTask(id) {
     let tasks = Store.getTasks();
@@ -46,6 +51,9 @@ export default class Store {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  /**
+   * @function updateTasksIndex - instance method that updates the index of all tasks
+   */
   static updateTasksIndex() {
     const tasks = Store.getTasks();
     tasks.forEach((task, index) => {
@@ -54,6 +62,9 @@ export default class Store {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  /**
+   * @function clearCompletedTasks - instance method that clears all completed tasks
+   */
   // clear all completed tasks from localStorage
   static clearCompletedTasks() {
     let tasks = Store.getTasks();
@@ -61,6 +72,9 @@ export default class Store {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
 
+  /**
+   * @function getCompletedTasks - instance method that returns all completed tasks
+   */
   static getCompletedTasks() {
     const tasks = Store.getTasks();
     return tasks.filter((task) => task.completed === true);
