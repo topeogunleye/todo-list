@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', UI.checkCompletedTasks);
 
 document.addEventListener('DOMContentLoaded', UI.renderTaskCount);
 
-// event listener for checkbox change
-document.querySelector('.tasks').addEventListener('change', (e) => {
-  Store.changeTaskStatus(e.target);
-  UI.renderTaskCount();
-});
-
 // Event: Add a task
 document.querySelector('.tasks-form').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -49,6 +43,12 @@ document.querySelector('.tasks').addEventListener('click', (e) => {
     UI.showAlert('Task removed', 'success');
     UI.renderTaskCount();
   }
+});
+
+// Event: Mark a task as completed or not completed
+document.querySelector('.tasks').addEventListener('change', (e) => {
+  Store.changeTaskStatus(e.target);
+  UI.renderTaskCount();
 });
 
 // Event: Clear all completed
