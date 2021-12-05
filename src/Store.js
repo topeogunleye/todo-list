@@ -22,8 +22,7 @@ export default class Store {
   }
 
   /**
-   * @function changeTaskStatus - instance method that changes the 
-   * completed property value to either true or false
+   * @function changeTaskStatus - handles the checkbox event listener
    * @param {Event Object} el - The event target
    */
   static changeTaskStatus(el) {
