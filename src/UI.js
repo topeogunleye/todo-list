@@ -18,7 +18,7 @@ export default class UI {
 
   /**
    * @function addTaskToList - add task to the UI
-   * @param {object} task - task object with keys: {description, completed, and index}
+   * @param {Object} task - task object with keys: {description, completed, and index}
    */
   static addTaskToList(task) {
     const todoList = document.querySelector('.tasks');
