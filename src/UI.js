@@ -2,6 +2,9 @@ import Store from './Store.js';
 
 // UI Class: Handle UI Class
 export default class UI {
+  /**
+   * @function displayTasks - display tasks on the UI
+   */
   static displayTasks() {
     const tasks = Store.getTasks();
 
