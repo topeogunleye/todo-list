@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import UI from './src/UI.js';
 
 const ui = new UI();
@@ -15,10 +11,9 @@ describe('Add and remove', () => {
     listItem.innerHTML = `
    <input 
      type="checkbox"
-      id="task-${task.index}"
    />
-   <input type="text" value="${task.description}" class="text-field">
-   <p class="d-none">${task.index}</p>
+   <input type="text"  class="text-field">
+   <p class="d-none"></p>
 <i class="fa fa-trash todo-icon deleteTask delete-task" aria-hidden="true"></i>
 
    `;
