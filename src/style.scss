@@ -47,28 +47,24 @@ body {
   padding: 0 20px;
 }
 
-.danger {
+@mixin theme($theme: DarkGray) {
+  background: $theme;
   color: #fff;
-  background-color: #d9534f;
   display: grid;
   place-items: center;
   padding: 10px 20px;
+}
+
+.danger {
+  @include theme(#d9534f);
 }
 
 .success {
-  color: #fff;
-  background-color: #5cb85c;
-  display: grid;
-  place-items: center;
-  padding: 10px 20px;
+  @include theme(#5cb85c);
 }
 
 .info {
-  color: #fff;
-  background-color: #5bc0de;
-  display: grid;
-  place-items: center;
-  padding: 10px 20px;
+  @include theme(#5bc0de);
 }
 
 .tasks-form {
@@ -135,19 +131,13 @@ body {
     .d-none {
       display: none;
     }
+  }
 
-    .view {
-      .edit {
-        // display: none;
-      }
-    }
-
-    .todo-icon {
-      margin-left: auto;
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-    }
+  .todo-icon {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
   }
 }
 
