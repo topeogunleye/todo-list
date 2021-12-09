@@ -32,9 +32,10 @@
   },
   "homepage": "https://topeogunleye.github.io/todo-list",
   "dependencies": {
+    "jsdom": "^16.7.0",
     "lodash": "^4.17.21"
   },
-  "jest":{
+  "jest": {
     "testEnvironment": "jsdom"
-}
+  }
 }
