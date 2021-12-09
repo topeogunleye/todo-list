@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 /* eslint-disable */
-import deleteTask from "../_mocks_/deleteItem";
+import deleteTask from "../_mocks_/deleteTask";
 
 describe('remove a task from the list', () => {
   const todos = [

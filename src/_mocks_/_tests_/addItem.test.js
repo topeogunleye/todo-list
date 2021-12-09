@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 /* eslint-disable */
-import addTask from "../_mocks_/addItem";
+import addTask from "../_mocks_/addTask";
 import StoreMock from "../_mocks_/StoreMock";
 
 describe('Add new task to the list', () => {
