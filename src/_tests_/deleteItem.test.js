@@ -2,28 +2,28 @@
  * @jest-environment jsdom
  */
 /* eslint-disable */
-import deleteTask from "../_mocks_/deleteItem";
+import deleteTask from "../_mocks_/deleteTask";
 
 describe('remove a task from the list', () => {
-  const todos = [
+  const task = [
     {
-      description: 'complete',
+      description: 'Go Swimming',
       status: false,
       index: '1',
     },
     {
-      description: 'two',
+      description: 'Go Shopping',
       status: false,
       index: '2',
     },
     {
-      description: 'three',
+      description: 'Play video games',
       status: false,
       index: '3',
     }
   ]
-  test ('remove an entry from the todo list', () => {
-    let todo = todos[1]
-    expect(deleteTask(todo, todos)).toHaveLength(2)
+  test ('remove an entry from the event task list', () => {
+    let eventTask = task[1]
+    expect(deleteTask(eventTask, task)).toHaveLength(2)
   })
 })

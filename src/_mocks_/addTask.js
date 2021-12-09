@@ -1,14 +1,14 @@
 /* eslint-disable */
 import StoreMock from "./StoreMock";
 
-function addTask(todos) {
+function addTask(task) {
   const newTask = {
     description: document.getElementById('input-box').value,
     completed: false,
-    index: todos.length + 1,
+    index: task.length + 1,
   };
-  todos.push(newTask);
-  StoreMock.setItem('todo', todos);
+  task.push(newTask);
+  StoreMock.setItem('eventTask', task);
 }
 
 export default addTask;
