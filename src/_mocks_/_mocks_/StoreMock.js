@@ -1,11 +1,11 @@
 /* eslint-disable */
 const storage = [];
 
-const localStorageMock = {
+const StoreMock = {
   getItem: (key) => storage [key],
   setItem: (key, value) => {
     storage [key] = value;
   }
 }
 
-export default localStorageMock;
+export default StoreMock;

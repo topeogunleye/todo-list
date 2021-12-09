@@ -3,7 +3,7 @@
  */
 /* eslint-disable */
 import addTask from "../_mocks_/addItem";
-import localStorageMock from "../_mocks_/localStorage";
+import StoreMock from "../_mocks_/StoreMock";
 
 describe('Add new task to the list', () => {
   const todos  = [];
@@ -13,7 +13,7 @@ describe('Add new task to the list', () => {
     expect(todos).toHaveLength(1);
   })
    test('Local Storage should be updated for every input', () => {
-    expect(localStorageMock.getItem('todo')).toHaveLength(1);
+    expect(StoreMock.getItem('todo')).toHaveLength(1);
    })
    test ('Add a second entry to the todo list', () => {
     document.body.innerHTML = `<input id='input-box' value='complete-second'/>`
