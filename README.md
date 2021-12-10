@@ -4,6 +4,7 @@
 
 > Todo-List: Minimalist To-do list website.
 
+![screenshot](./app_screenshot.png)
 ![screenshot](./run-test.PNG)
 
 ### Additional description about the project and its features:

@@ -40,12 +40,11 @@ describe('Edit a task in local storage', () => {
       description: 'Task 1 description edited',
       status: 'incomplete',
     };
-    
+
     editTask(task, newTask);
 
-  
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     expect(tasks[0].title).toEqual('Task 1 edited');
     expect(tasks[0].description).toEqual('Task 1 description edited');
   });
-})
+});

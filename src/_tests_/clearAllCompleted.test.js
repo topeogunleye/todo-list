@@ -1,4 +1,3 @@
-
 // Test:  Clear All Completed
 import clearCompletedTasks from '../_mocks_/clearAllCompleted';
 import localStorageMock from '../_mocks_/localStorageMock';
@@ -7,7 +6,7 @@ describe('Clear All Completed', () => {
   test('Clear all completed tasks', () => {
     // localStorageMock.clear();
 
-    let tasks = [
+    const tasks = [
       {
         id: 1,
         title: 'Task 1',
@@ -39,12 +38,11 @@ describe('Clear All Completed', () => {
         completed: true,
       },
 
-    ]
+    ];
 
     localStorageMock.setItem('tasks', JSON.stringify(tasks));
 
     clearCompletedTasks(tasks);
-
 
     expect(localStorageMock.getItem('tasks')).toBe(
       JSON.stringify([
@@ -73,7 +71,7 @@ describe('Clear All Completed', () => {
           title: 'Task 5',
           completed: false,
         },
-      ])
+      ]),
     );
   });
 });
