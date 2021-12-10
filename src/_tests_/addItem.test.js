@@ -3,7 +3,7 @@
  */
 /* eslint-disable */
 import addTask from "../_mocks_/addTask";
-import StoreMock from "../_mocks_/StoreMock";
+import localStorageMock from "../_mocks_/localStorageMock";
 
 describe('Add new task to the list of event', () => {
   const task  = [];
@@ -14,7 +14,7 @@ describe('Add new task to the list of event', () => {
     expect(task).toBeTruthy();
   });
    test('Local Storage should be updated for every event input', () => {
-    expect(StoreMock.getItem('eventTask')).toHaveLength(1);
+    expect(localStorageMock.getItem('eventTask')).toHaveLength(1);
    });
    test ('Add a second entry to the event task list', () => {
     document.body.innerHTML = `<input id='input-box' value='complete-second'/>`
