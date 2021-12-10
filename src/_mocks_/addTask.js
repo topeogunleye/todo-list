@@ -1,5 +1,5 @@
 /* eslint-disable */
-import StoreMock from "./StoreMock";
+import localStorageMock from "./localStorageMock";
 
 function addTask(task) {
   const newTask = {
@@ -8,7 +8,7 @@ function addTask(task) {
     index: task.length + 1,
   };
   task.push(newTask);
-  StoreMock.setItem('eventTask', task);
+  localStorageMock.setItem('eventTask', task);
 }
 
 export default addTask;
