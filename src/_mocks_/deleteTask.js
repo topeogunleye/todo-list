@@ -1,5 +1,5 @@
 /* eslint-disable */
-import StoreMock from "./StoreMock";
+import localStorageMock from "./localStorageMock";
 
 function deleteTask(eventTask, task) {
   let index = eventTask.index
@@ -7,7 +7,7 @@ function deleteTask(eventTask, task) {
   task.forEach((object, index) => {
     object.index = index + 1;
   });
-  StoreMock.setItem('eventTask', currentEventTasks);
+  localStorageMock.setItem('eventTask', currentEventTasks);
   return currentEventTasks
 }
 export default deleteTask
